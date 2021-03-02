@@ -8,5 +8,4 @@ module.exports = function dateSample( sampleActivity ) {
   if(parseFloat === NaN)
   return Math.ceil(Math.log(MODERN_ACTIVITY / Number(sampleActivity)) / (0.693 / HALF_LIFE_PERIOD))
   return Math.ceil(Math.log(MODERN_ACTIVITY / parseFloat(sampleActivity)) / (0.693 / HALF_LIFE_PERIOD))
-git add
 };
