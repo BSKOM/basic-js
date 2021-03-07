@@ -1,6 +1,10 @@
 const CustomError = require("../extensions/custom-error");
 
 class VigenereCipheringMachine {
+  constructor(bul=true) {
+    this.bul = bul
+  }
+
   encrypt(str, key) {
     let res = []
     let n = 0
@@ -12,7 +16,7 @@ class VigenereCipheringMachine {
         res += str[i]
       }
     }
-    return res
+    return (this.bul) ? res : res.split('').reverse().join('')
     // throw new CustomError('Not implemented');
     // remove line with error and write your code here
   }
@@ -27,7 +31,7 @@ class VigenereCipheringMachine {
         res += str[i]
       }
     }
-    return res
+    return (this.bul) ? res : res.split('').reverse().join('')
   }
   // throw new CustomError('Not implemented');
   // remove line with error and write your code here
