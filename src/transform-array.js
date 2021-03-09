@@ -6,6 +6,7 @@ module.exports = function transform(arr) {
   if (Array.isArray(arr) && arr.constructor === Array) {
     if (!(arr.includes('--discard-next') || arr.includes('--discard-prev') || arr.includes('--double-next') || arr.includes('--double-prev'))) return arr
     for (let i = 0; i < arr.length;) {
+      // if (Array.isArray(arr[i]) && arr[1].constructor === Array) { throw new error('error')}
       if (((arr[i] === '--discard-prev') && (i === 0))
         || ((arr[i] === '--discard-next') && (i === (arr.length - 1)))
         || ((arr[i] === '--double-prev') && (i === 0))
@@ -23,12 +24,20 @@ module.exports = function transform(arr) {
       } else if ((arr[i] === '--double-next') && (arr[i + 2] === '--discard-prev')) {
         res.push(arr[i + 1])
         i += 2
+      } else if (arr[i] === '--discard-prev') {
+        res.pop()
+      } else if (arr[i] === '--discard-next') {
+        i += 1
+      } else if (arr[i] === '--double-prev') {
+        res.push(arr[i - 1])
+      } else if (arr[i] === '--double-next') {
+        res.push(arr[i+1])
       }
       else {
         res.push(arr[i])
       }
       i += 1
     }
-    return res
-  }
+  } else throw new error('Not array')
+  return res
 };
