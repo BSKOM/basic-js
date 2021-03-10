@@ -7,6 +7,8 @@ module.exports = function repeater( str, options ) {
     s += String(str)
     for (let j = 1; j <= additionRepeatTimes; j++) {
       s += String(addition)
+      if (j < additionRepeatTimes)
+        s += String(additionSeparator)
     }
     if (i < repeatTimes) s += String(separator)
   }
