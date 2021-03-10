@@ -1,10 +1,12 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function repeater( str, options ) {
-  // if ( options === undefined || str === undefined || str.lenght === 0 ) return false 
-  // return true
-
-  throw new CustomError('Not implemented');
-  // remove line with error and write your code here
+  let { repeatTimes = 1, separator = '+', addition = '', additionRepeatTimes = 1, additionSeparator = '|' } = options
+  let s = ''
+  for (let i = 1; i <= repeatTimes; i++) {
+    s += String(str)
+    if (i < repeatTimes) s += String(separator)
+  }
+  return s
 };
   
