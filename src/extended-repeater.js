@@ -5,8 +5,10 @@ module.exports = function repeater( str, options ) {
   let s = ''
   for (let i = 1; i <= repeatTimes; i++) {
     s += String(str)
+    for (let j = 1; j <= additionRepeatTimes; j++) {
+      s += String(addition)
+    }
     if (i < repeatTimes) s += String(separator)
   }
   return s
 };
-  
