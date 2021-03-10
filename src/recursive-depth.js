@@ -6,7 +6,7 @@ module.exports = class DepthCalculator {
     if (Array.isArray(arr)) {
       for (let key in arr) {
         if (Array.isArray(arr[key])) {
-          let depth = calculateDepth(arr[key])
+          let depth = this.calculateDepth(arr[key])
           if (depth > maxDepth) maxDepth = depth
         }
       }
